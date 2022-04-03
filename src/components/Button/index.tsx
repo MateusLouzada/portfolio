@@ -1,14 +1,15 @@
 import { Container } from "./styles";
 
 interface Props {
-    children:string
+    children?:string
+    isClick?:boolean
+    onclick?():void
 }
 
-function Button(props: Props) {
-    const {children} = props
+function Button({isClick = false, children, onclick = undefined}: Props) {
 
     return (
-        <Container>
+        <Container onClick={(isClick) ? onclick : undefined}>
             {children}
         </Container>
     )
