@@ -4,12 +4,13 @@ interface Props {
     children?:string
     isClick?:boolean
     onclick?():void
+    size?:string
 }
 
-function Button({isClick = false, children, onclick = undefined}: Props) {
+function Button({isClick = false, children, onclick = undefined, size = '180'}: Props) {
 
     return (
-        <Container onClick={(isClick) ? onclick : undefined}>
+        <Container size={size} onClick={(isClick) ? onclick : undefined}>
             {children}
         </Container>
     )

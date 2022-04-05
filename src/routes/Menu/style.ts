@@ -5,7 +5,6 @@ export const Container = styled.div`
   height: 60vh;
   width: 90vw;
   max-width: 300px;
-  background-color: ${(props) => props.theme.colors.primary};
   display: flex;
   flex-direction: column;
   align-items: center;

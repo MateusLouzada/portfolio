@@ -1,19 +1,20 @@
 import Button from "../Button";
-import { Container, Image, Text, DivButtons } from "./styles";
+import { Container, Image, Text, DivButtons, Title } from "./styles";
 
 export interface Props {
   children: string;
   image: string;
   isView: boolean;
   code: string;
-  site: string;
+  site?: string;
+  title: string
 }
 
 const Card = (props: Props) => {
-  const { children, image, isView, code, site } = props;
+  const { children, image, isView, code, site, title } = props;
 
   const handleClickSite = () => {
-    window.location.href = site
+   if(site) window.location.href = site
   }
 
   const handleClickCode = () => {
@@ -24,13 +25,16 @@ const Card = (props: Props) => {
 
   return (
     <Container>
+      <Title>
+        {title}
+      </Title>
       <Image>
         <img src={image} />
       </Image>
       <Text>{children}</Text>
       <DivButtons>
-        <Button isClick={true} onclick={handleClickSite}>Site</Button>
-        {isView ? <Button isClick={true} onclick={handleClickCode} >Código</Button> : null}
+        <Button size="120" isClick={true} onclick={handleClickCode}>Código</Button>
+        {isView ? <Button size="120" isClick={true} onclick={handleClickSite} >Site</Button> : null}
       </DivButtons>
     </Container>
   );
